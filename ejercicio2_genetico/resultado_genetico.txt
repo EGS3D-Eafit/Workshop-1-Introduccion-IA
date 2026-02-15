@@ -1,0 +1,117 @@
+======================================================================
+EJERCICIO 2: ALGORITMO GENÉTICO PARA PLANIFICACIÓN DE HORARIOS
+======================================================================
+
+======================================================================
+INICIANDO ALGORITMO GENÉTICO
+======================================================================
+Tamaño de población: 100
+Número de generaciones: 200
+Tasa de cruce: 0.8
+Tasa de mutación: 0.1
+Elitismo: 2
+
+Generando población inicial...
+Población inicial creada.
+Mejor fitness inicial: 412.00
+Generación 20/200 - Mejor fitness: 1230.00
+Generación 40/200 - Mejor fitness: 1235.00
+Generación 60/200 - Mejor fitness: 1235.00
+Generación 80/200 - Mejor fitness: 1235.00
+Generación 100/200 - Mejor fitness: 1235.00
+Generación 120/200 - Mejor fitness: 1235.00
+Generación 140/200 - Mejor fitness: 1235.00
+Generación 160/200 - Mejor fitness: 1235.00
+Generación 180/200 - Mejor fitness: 1235.00
+Generación 200/200 - Mejor fitness: 1235.00
+
+======================================================================
+ALGORITMO GENÉTICO COMPLETADO
+======================================================================
+
+======================================================================
+ANÁLISIS DE LA MEJOR SOLUCIÓN ENCONTRADA
+======================================================================
+Fitness: 1235.00
+Número de cursos programados: 8
+
+--- RESTRICCIONES DURAS ---
+Violaciones de capacidad: 0
+Conflictos de salón: 0
+Conflictos de profesor: 0
+✓ Todas las restricciones duras se cumplen
+
+--- RESTRICCIONES BLANDAS ---
+Preferencias de horario cumplidas: 8/8 (100.0%)
+
+======================================================================
+HORARIO COMPLETO
+======================================================================
+
+1. Inteligencia Artificial
+   Profesor: Dr. García
+   Estudiantes: 45
+   Salón: Aula 201 (capacidad: 60, tipo: normal)
+   Horario: Lunes 14:00-16:00
+
+2. Estructuras de Datos
+   Profesor: Dra. Martínez
+   Estudiantes: 50
+   Salón: Aula 201 (capacidad: 60, tipo: normal)
+   Horario: Jueves 14:00-16:00
+
+3. Lab. Programación
+   Profesor: Dr. García
+   Estudiantes: 25
+   Salón: Lab A (capacidad: 30, tipo: laboratorio)
+   Horario: Viernes 10:00-12:00
+
+4. Bases de Datos
+   Profesor: Dr. López
+   Estudiantes: 40
+   Salón: Aula 102 (capacidad: 50, tipo: normal)
+   Horario: Lunes 08:00-10:00
+
+5. Cálculo Diferencial
+   Profesor: Dra. Rodríguez
+   Estudiantes: 60
+   Salón: Aula 201 (capacidad: 60, tipo: normal)
+   Horario: Martes 08:00-10:00
+
+6. Conferencia IA
+   Profesor: Dr. García
+   Estudiantes: 100
+   Salón: Auditorio Principal (capacidad: 120, tipo: auditorio)
+   Horario: Miércoles 08:00-10:00
+
+7. Física I
+   Profesor: Dr. Hernández
+   Estudiantes: 55
+   Salón: Aula 201 (capacidad: 60, tipo: normal)
+   Horario: Viernes 08:00-10:00
+
+8. Lab. Química
+   Profesor: Dra. Martínez
+   Estudiantes: 30
+   Salón: Lab B (capacidad: 35, tipo: laboratorio)
+   Horario: Martes 08:00-10:00
+
+======================================================================
+EVOLUCIÓN DEL FITNESS
+======================================================================
+Fitness inicial: 412.00
+Fitness final: 1235.00
+Mejora: 823.00
+
+Progreso por generaciones:
+  Generación 0: 412.00
+  Generación 25: 1235.00
+  Generación 50: 1235.00
+  Generación 75: 1235.00
+  Generación 100: 1235.00
+  Generación 150: 1235.00
+  Generación 200: 1235.00
+
+======================================================================
+EJECUCIÓN COMPLETADA
+======================================================================

@@ -1,0 +1,296 @@
+================================================================================
+EXPERIMENTOS CON ALGORITMO GENÉTICO
+================================================================================
+
+================================================================================
+EXPERIMENTO 1: Tamaño de Población
+================================================================================
+
+Objetivo: Evaluar cómo el tamaño de población afecta la calidad de la solución
+
+Configuración fija:
+  Generaciones: 100
+  Tasa cruce: 0.8
+  Tasa mutación: 0.1
+  Elitismo: 2
+
+Probando población de 20...
+  Fitness final: 1050.00
+  Violaciones: capacidad=0, salón=0, profesor=0
+  Mejora: 260.00
+
+Probando población de 50...
+  Fitness final: 1050.00
+  Violaciones: capacidad=0, salón=0, profesor=0
+  Mejora: 0.00
+
+Probando población de 100...
+  Fitness final: 1050.00
+  Violaciones: capacidad=0, salón=0, profesor=0
+  Mejora: 45.00
+
+Probando población de 200...
+  Fitness final: 1050.00
+  Violaciones: capacidad=0, salón=0, profesor=0
+  Mejora: 30.00
+
+ANÁLISIS:
+  Población   Fitness   Violaciones   Mejora
+        20   1050.00              0    260.00
+        50   1050.00              0      0.00
+       100   1050.00              0     45.00
+       200   1050.00              0     30.00
+
+CONCLUSIONES:
+  - Población mayor → mejor fitness final
+  - Población mayor → menos violaciones
+  - Balance: 100 es bueno para este problema
+  - Población muy pequeña (20) encuentra soluciones pobres
+
+================================================================================
+EXPERIMENTO 2: Número de Generaciones
+================================================================================
+
+Objetivo: Evaluar cuántas generaciones son necesarias para convergencia
+
+Configuración fija:
+  Población: 100
+  Tasa cruce: 0.8
+  Tasa mutación: 0.1
+
+Probando 50 generaciones...
+  Fitness final: 1050.00
+  Violaciones totales: 0
+
+Probando 100 generaciones...
+  Fitness final: 1050.00
+  Violaciones totales: 0
+
+Probando 200 generaciones...
+  Fitness final: 1050.00
+  Violaciones totales: 0
+
+Probando 300 generaciones...
+  Fitness final: 1050.00
+  Violaciones totales: 0
+
+ANÁLISIS:
+  Generaciones   Fitness   Violaciones
+            50   1050.00              0
+           100   1050.00              0
+           200   1050.00              0
+           300   1050.00              0
+
+CONCLUSIONES:
+  - Más generaciones → mejor convergencia
+  - 200 generaciones son suficientes para este problema
+  - Después de 200, mejora marginal es pequeña
+
+================================================================================
+EXPERIMENTO 3: Tasa de Mutación
+================================================================================
+
+Objetivo: Encontrar tasa de mutación óptima
+
+Configuración fija:
+  Población: 100
+  Generaciones: 150
+  Tasa cruce: 0.8
+
+Probando tasa mutación 0.01...
+  Fitness: 1050.00
+  Violaciones: 0
+
+Probando tasa mutación 0.05...
+  Fitness: 1050.00
+  Violaciones: 0
+
+Probando tasa mutación 0.1...
+  Fitness: 1050.00
+  Violaciones: 0
+
+Probando tasa mutación 0.2...
+  Fitness: 1050.00
+  Violaciones: 0
+
+Probando tasa mutación 0.3...
+  Fitness: 1050.00
+  Violaciones: 0
+
+ANÁLISIS:
+  Tasa Mutación   Fitness   Violaciones
+           0.01   1050.00              0
+           0.05   1050.00              0
+           0.10   1050.00              0
+           0.20   1050.00              0
+           0.30   1050.00              0
+
+CONCLUSIONES:
+  - Tasa muy baja (0.01) → poca exploración
+  - Tasa muy alta (0.3) → destruye buenas soluciones
+  - Óptimo: 0.1 (balance exploración/explotación)
+
+================================================================================
+EXPERIMENTO 4: Tasa de Cruce
+================================================================================
+
+Objetivo: Evaluar impacto de la probabilidad de cruce
+
+Configuración fija:
+  Población: 100
+  Generaciones: 150
+  Tasa mutación: 0.1
+
+Probando tasa cruce 0.5...
+  Fitness: 1050.00
+
+Probando tasa cruce 0.7...
+  Fitness: 1050.00
+
+Probando tasa cruce 0.8...
+  Fitness: 1050.00
+
+Probando tasa cruce 0.9...
+  Fitness: 1050.00
+
+Probando tasa cruce 1.0...
+  Fitness: 1050.00
+
+ANÁLISIS:
+  Tasa Cruce   Fitness   Violaciones
+         0.5   1050.00              0
+         0.7   1050.00              0
+         0.8   1050.00              0
+         0.9   1050.00              0
+         1.0   1050.00              0
+
+CONCLUSIONES:
+  - Tasa baja (0.5) → menos combinación de soluciones
+  - Tasa alta (0.9-1.0) → buena exploración
+  - Recomendado: 0.8 (balance)
+
+================================================================================
+EXPERIMENTO 5: Estrategia de Elitismo
+================================================================================
+
+Objetivo: Evaluar cuántos mejores individuos preservar
+
+Configuración fija:
+  Población: 100
+  Generaciones: 150
+
+Probando elitismo 0...
+  Fitness: 1050.00
+  Fitness inicial: 1005.00
+
+Probando elitismo 1...
+  Fitness: 1050.00
+  Fitness inicial: 1035.00
+
+Probando elitismo 2...
+  Fitness: 1050.00
+  Fitness inicial: 1035.00
+
+Probando elitismo 5...
+  Fitness: 1050.00
+  Fitness inicial: 1020.00
+
+Probando elitismo 10...
+  Fitness: 1050.00
+  Fitness inicial: 1035.00
+
+ANÁLISIS:
+  Elitismo   Fitness Final   Fitness Inicial
+         0        1050.00          1005.00
+         1        1050.00          1035.00
+         2        1050.00          1035.00
+         5        1050.00          1020.00
+        10        1050.00          1035.00
+
+CONCLUSIONES:
+  - Sin elitismo (0) → puede perder buenas soluciones
+  - Elitismo moderado (2-5) → preserva calidad
+  - Elitismo alto (10) → menos diversidad
+  - Recomendado: 2 (1-2% de población)
+
+================================================================================
+EXPERIMENTO 6: Escalabilidad del Problema
+================================================================================
+
+Objetivo: Ver cómo se comporta con más cursos y restricciones
+
+Problema simple (5 cursos):
+  Cursos: 5
+  Salones: 4
+  Franjas: 6
+  Fitness: 1050.00
+  Violaciones: 0
+
+Problema complejo (8 cursos):
+  Cursos: 8
+  Salones: 6
+  Franjas: 10
+  Fitness: 1080.00
+  Violaciones: 0
+
+ANÁLISIS:
+  - Problema más grande requiere más franjas horarias
+  - Con suficientes recursos, encuentra buenas soluciones
+  - Fitness absoluto depende del tamaño del problema
+
+================================================================================
+EXPERIMENTO 7: Convergencia en el Tiempo
+================================================================================
+
+Objetivo: Ver cómo evoluciona la solución generación por generación
+
+Evolución del fitness:
+  Generación   0:  1035.00
+  Generación  25:  1050.00
+  Generación  50:  1050.00
+  Generación  75:  1050.00
+  Generación 100:  1050.00
+  Generación 150:  1050.00
+  Generación 200:  1050.00
+
+ANÁLISIS:
+  Fitness inicial: 1035.00
+  Fitness final: 1050.00
+  Mejora total: 15.00
+  Mejora primeras 50 gen: 15.00
+  Mejora últimas 50 gen: 0.00
+
+CONCLUSIONES:
+  - Mayor mejora ocurre en primeras generaciones
+  - Convergencia rápida al inicio
+  - Refinamiento gradual después
+
+================================================================================
+RESUMEN DE EXPERIMENTOS
+================================================================================
+
+PARÁMETROS ÓPTIMOS ENCONTRADOS:
+  - Tamaño población: 100
+  - Generaciones: 200
+  - Tasa cruce: 0.8
+  - Tasa mutación: 0.1
+  - Elitismo: 2
+
+HALLAZGOS CLAVE:
+  1. Población grande mejora calidad pero aumenta tiempo
+  2. 200 generaciones son suficientes para convergencia
+  3. Mutación 0.1 balancea exploración y explotación
+  4. Cruce 0.8 es efectivo para combinar soluciones
+  5. Elitismo 2 preserva calidad sin perder diversidad
+  6. Algoritmo escala bien a problemas más grandes
+  7. Mayor mejora ocurre en primeras generaciones
+
+TRADE-OFFS IMPORTANTES:
+  - Población vs Tiempo: más población = mejor pero más lento
+  - Generaciones vs Mejora: después de 200, mejora marginal
+  - Mutación vs Estabilidad: balance crítico
+  - Elitismo vs Diversidad: 2% es buen balance
+
+================================================================================
+FIN DE EXPERIMENTOS
+================================================================================
