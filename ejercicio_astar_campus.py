@@ -153,7 +153,7 @@ class AStarSolver:
         open_heap = []
 
         # costos y padres
-        g = {start: 0}
+        f = {start: 0}
         came_from = {}
 
         f0 = 0 # g[start] + self.campus.h(start)
@@ -180,7 +180,7 @@ class AStarSolver:
                     current = came_from[current]
                     path.append(current)
                 path.reverse()
-                return path, g[goal]
+                return path, cost_current
 
             # closed.add(current) # Añadir los nodos visitados/cerrados
 
@@ -188,13 +188,13 @@ class AStarSolver:
             for neighbor, step_cost in self.vecinos(current):
                 #if neighbor in closed:
                     #continue
+                #    f  =  g(x) + h(x)
+                tentative_f = cost_current + step_cost + self.campus.h(neighbor)
 
-                tentative_g = cost_current + step_cost + self.campus.h(neighbor)
-
-                if tentative_g < g.get(neighbor, float('inf')):
+                if tentative_f < f.get(neighbor, float('inf')):
                     came_from[neighbor] = current
-                    g[neighbor] = tentative_g
-                    heapq.heappush(open_heap, State(tentative_g, neighbor))
+                    f[neighbor] = tentative_f
+                    heapq.heappush(open_heap, State(tentative_f, neighbor))
                     heapq.heapify(open_heap)
 
         return None, float('inf')
@@ -234,3 +234,26 @@ m = [
 ]
 
 print( AStarSolver(Campus(m, ("B30", 0), ("B37", 2))).solve() )
+
+# Notas de experimentacion:
+"""
+    Intento 1: Realize una clase para el campus la cual manejara los movimientos, el mapa y el checkeo de llegada al final
+    Para luego realizar una clase de Agentes los cuales estaran buscando en el mapa la llegada.
+    
+    En el mapa de campus la forma general es que se tiene un lugar y para decidir si tiene pisos y/o ascensor se usa un parametro llamada "specific_rules" para saber que cambiar y que tomar en cuenta
+    
+    Intento 2-5: El sistema de navegacion en el campus es malisimo porque se me olvidaron los costos y la heuristica al igual que el subir
+    y bajar dentro de un edificio
+    
+    Intento 5-12: No son agentes, es una funcion de expansion de arbol asique cambie los agentes a la clase AStarSolver
+    
+    Intento 12-14: El movimiento sigue siendo horrible porque para hacer la expansion necesito que los movimientos se den en AStarSolver y no en el mapa
+    
+    Intento 14-18: El movimiento es mejor pero la cola esta mal no se porque???
+    
+    Intento 18-27: adskasakfjldkfjlskjfsl PERO QUE ESTA MAAAAALL
+    
+    Intento 27-35: Resulta que se me olvido hacer un objeto para representar los estados con una funcion lt definida para el heapqfy :/
+    
+    Intento 36: Programa terminado
+"""
